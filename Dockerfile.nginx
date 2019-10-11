@@ -1,0 +1,14 @@
+FROM ubuntu:latest
+
+MAINTAINER chris.law@mediakind.com
+
+RUN apt update
+RUN apt upgrade -y
+RUN apt install -y nginx
+RUN apt clean
+
+EXPOSE 80
+
+STOPSIGNAL SIGTERM
+
+CMD ["nginx", "-g", "daemon off;"]
